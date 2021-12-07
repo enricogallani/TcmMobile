@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".LoginActivity">
+    tools:context=".ui.LoginActivity">
 
     <ImageView
         android:id="@+id/imageViewlogo"
@@ -30,11 +30,12 @@
 
     <EditText
         android:id="@+id/etEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="16dp"
         android:ems="10"
-        android:hint="Nome"
+        android:hint="E-mail"
         android:inputType="textEmailAddress"
         android:textColor="#000000"
         android:background="#FFFFFF"
@@ -44,9 +45,10 @@
 
     <EditText
         android:id="@+id/etSenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="16dp"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword"
@@ -57,8 +59,9 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="25dp"
         android:text="Login"
         app:backgroundTint="@color/azulclaro"
@@ -69,8 +72,9 @@
 
     <Button
         android:id="@+id/btnRegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         android:text="Registro"
         app:backgroundTint="@color/azulclaro"

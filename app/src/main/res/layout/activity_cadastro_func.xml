@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".CadastroFuncActivity">
+    tools:context=".ui.CadastroFuncActivity">
 
     <ImageView
         android:id="@+id/imageViewlogo"
@@ -30,8 +30,9 @@
 
     <EditText
         android:id="@+id/etNome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Nome"
@@ -44,8 +45,9 @@
 
     <EditText
         android:id="@+id/etEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Email"
@@ -58,11 +60,12 @@
 
     <EditText
         android:id="@+id/etCargo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="32dp"
         android:ems="10"
-        android:hint="Nome"
+        android:hint="Cargo"
         android:inputType="text"
         android:textColor="#000000"
         android:background="#FFFFFF"
@@ -71,9 +74,10 @@
         app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <EditText
-        android:id="@+id/etdefSenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/etSenha"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Definir Senha"
@@ -85,14 +89,15 @@
 
     <Button
         android:id="@+id/btnCadastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="25dp"
         android:text="Cadastro"
         app:backgroundTint="@color/azulclaro"
         app:iconTint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etdefSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/etSenha" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

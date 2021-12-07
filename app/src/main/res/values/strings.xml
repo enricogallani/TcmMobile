@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Front</string>
+    <string name="title_activity_home">MainActivity</string>
+    <string name="title_client">Clientes</string>
+    <string name="title_find">Busca</string>
+    <string name="title_profile">Perfil</string>
 </resources>
