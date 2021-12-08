@@ -1,4 +1,4 @@
-package com.example.front.ui;
+package com.example.front.ui.client;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,13 +38,12 @@ public class ClientActivity extends AppCompatActivity {
         List<Client> clients = new ClientHelper(ClientActivity.this).getAll();
         ClientAdapter adapter = new ClientAdapter(clients);
         adapter.setOnItemClickListener((view, position) -> {
-            final Client food = clients.get(position);
+            final Client client = clients.get(position);
 
-            //Intent intent = new Intent(RestaurantActivity.this, OrderActivity.class);
-            //intent.putExtra("restaurant", restaurant);
-            //intent.putExtra("food", food);
+            Intent intent = new Intent(ClientActivity.this, ShowClientActivity.class);
+            intent.putExtra("client", client);
 
-            //startActivity(intent);
+            startActivity(intent);
         });
 
         RecyclerView rv = findViewById(R.id.listView);

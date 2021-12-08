@@ -70,8 +70,14 @@ public class Client implements Serializable {
 
     @Override
     public String toString() {
-        return "Client:" +
-                " CNPJ ='" + cnpj + '\'' +
-                ", Nome ='" + name + '\'';
+        return "Client{" +
+                "id=" + id +
+                ", cnpj='" + cnpj + '\'' +
+                ", name='" + name + '\'' +
+                ", mail='" + mail + '\'' +
+                ", phone='" + phone + '\'' +
+                ", paymentMethod='" + paymentMethod + '\'' +
+                ", location='" + location + '\'' +
+                '}';
     }
 }

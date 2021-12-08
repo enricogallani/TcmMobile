@@ -1,4 +1,4 @@
-package com.example.front.ui;
+package com.example.front.ui.client;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -7,7 +7,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.front.R;
 import com.example.front.db.entity.Client;
