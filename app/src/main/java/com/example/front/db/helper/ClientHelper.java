@@ -23,7 +23,7 @@ public class ClientHelper {
         db = new DBHelper(this.context).getWritableDatabase();
     }
 
-    public String[] columns(){
+    public String[] columns() {
         return new String[]{
                 DBContract.Client._ID,
                 DBContract.Client.COLUMN_NAME,
@@ -51,9 +51,33 @@ public class ClientHelper {
         db.close();
 
         return clients;
-     }
+    }
 
-    public Client inserir(Client client){
+    public List<Client> getByAny(String any) {
+        List<Client> clients = new ArrayList<>();
+
+        String[] args = new String[]{any,any,any,any,any};
+        Cursor c = db.query(DBContract.Client.TABLE_NAME, columns(),
+                        DBContract.Client.COLUMN_EMAIL + " LIKE '%" + any + "%' OR (" +
+                        DBContract.Client.COLUMN_CNPJ + " LIKE '%" + any + "%' OR " +
+                        DBContract.Client.COLUMN_PHONE + " LIKE '%" + any + "%' OR " +
+                        DBContract.Client.COLUMN_LOCATION + " LIKE '%" + any + "%' OR " +
+                        DBContract.Client.COLUMN_PAYMENT_METHOD + " LIKE '%" + any + "%') "
+                , null, DBContract.Client._ID, null, DBContract.Client._ID + " DESC");
+
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            Client client = fillClient(c);
+            clients.add(client);
+            c.moveToNext();
+        }
+        c.close();
+        db.close();
+
+        return clients;
+    }
+
+    public Client inserir(Client client) {
         ContentValues cv = new ContentValues();
         cv.put(DBContract.Client.COLUMN_NAME, client.getName());
         cv.put(DBContract.Client.COLUMN_EMAIL, client.getMail());

@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.front.R;
 import com.example.front.ui.client.ClientActivity;
+import com.example.front.ui.client.FindClientActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +24,6 @@ public class MainActivity extends AppCompatActivity {
         Button btnBusca = findViewById(R.id.btnBusca);
 
         btnClient.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ClientActivity.class)));
-
+        btnBusca.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, FindClientActivity.class)));
     }
 }

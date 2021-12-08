@@ -6,6 +6,7 @@
     <string name="title_profile">Perfil</string>
     <string name="title_activity_client">Lista de clientes</string>
     <string name="title_activity_create_client">Cadastro de clientes</string>
+    <string name="title_activity_find_client">Buscar</string>
     <string name="title_activity_show_client">Detalhe do cliente</string>
 
     <!-- Strings used for fragments for navigation -->
