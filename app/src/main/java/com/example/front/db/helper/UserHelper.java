@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.front.db.DBContract;
 import com.example.front.db.DBHelper;
@@ -19,22 +20,30 @@ public class UserHelper {
 
     public UserHelper(Context context) {
         this.context = context;
-        db = new DBHelper(this.context).getWritableDatabase();
     }
 
     public String[] columns(){
-        return new String[]{"_id", "name", "email", "office", "password"};
+        return new String[]{"_id",
+                DBContract.User.COLUMN_NAME,
+                DBContract.User.COLUMN_EMAIL,
+                DBContract.User.COLUMN_OFFICE,
+                DBContract.User.COLUMN_PASSWORD};
     }
 
     public User login(String email, String password) {
         List<User> users = new ArrayList<>();
 
+        Log.d("LSDKSLD ", "LSKDSLD ENTROU " + email + " LSKDL SKDSL " + password);
+        db = new DBHelper(this.context).getWritableDatabase();
         String[] args = new String[]{email, password};
         Cursor c = db.query(DBContract.User.TABLE_NAME, columns(),
-                "email = ? & password = ?", args, null, null, "name");
+                DBContract.User.COLUMN_EMAIL + " = ? AND "
+                        + DBContract.User.COLUMN_PASSWORD + " = ?", args, null, null, DBContract.User.COLUMN_EMAIL);
 
+        Log.d("LSDKSLD ", "LSKDSLD ENTROU " + c.toString());
         c.moveToFirst();
         while (!c.isAfterLast()) {
+            Log.d("LSDKSLD ", "LSKDSLD ENTROU ");
             User user = fillUser(c);
             users.add(user);
             c.moveToNext();
@@ -50,6 +59,7 @@ public class UserHelper {
     public User findByEmail(String email) {
         List<User> users = new ArrayList<>();
 
+        db = new DBHelper(this.context).getWritableDatabase();
         String[] args = new String[]{email};
         Cursor c = db.query(DBContract.User.TABLE_NAME, columns(),
                 "email = ?", args, null, null, "name");
@@ -75,6 +85,9 @@ public class UserHelper {
         cv.put("office", user.getOffice());
         cv.put("password", user.getPassword());
 
+        Log.d("LSKDLSKD SLDKS L", "LSKDLSDK SLDKSL DKSLD " + cv.toString());
+
+        db = new DBHelper(this.context).getWritableDatabase();
         long id = db.insert(DBContract.User.TABLE_NAME, null, cv);
         db.close();
 
@@ -85,8 +98,8 @@ public class UserHelper {
     private User fillUser(Cursor c) {
         User user = new User();
         user.setId(c.getLong(0));
-        user.setMail(c.getString(1));
-        user.setName(c.getString(2));
+        user.setMail(c.getString(2));
+        user.setName(c.getString(1));
         user.setOffice(c.getString(3));
         return user;
     }

@@ -10,17 +10,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Front">
         <activity
-            android:name=".ui.HomeActivity"
-            android:label="@string/title_activity_home"></activity>
-        <activity android:name=".ui.MainActivity" />
-        <activity android:name=".ui.CadastroFuncActivity" />
-        <activity android:name=".ui.LoginActivity">
+            android:name=".ui.SplashActivity"
+            android:theme="@style/Theme.Front.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.ClientActivity"
+            android:label="@string/title_activity_client"
+            android:theme="@style/Theme.Front.NoActionBar" />
+        <activity
+            android:name=".ui.CreateClientActivity"
+            android:label="@string/title_activity_create_client"
+            android:theme="@style/Theme.Front.NoActionBar" />
+        <activity
+            android:name=".ui.HomeActivity"
+            android:label="@string/title_activity_home" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:theme="@style/Theme.Front.NoActionBar" />
+        <activity
+            android:name=".ui.CadastroFuncActivity"
+            android:theme="@style/Theme.Front.NoActionBar" />
+        <activity
+            android:name=".ui.LoginActivity"
+            android:theme="@style/Theme.Front.NoActionBar" />
     </application>
 
 </manifest>

@@ -3,6 +3,7 @@ package com.example.front.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.example.front.R;
 import com.example.front.db.entity.User;
 import com.example.front.db.helper.UserHelper;
+import com.google.gson.Gson;
 
 public class CadastroFuncActivity extends AppCompatActivity {
 
@@ -58,7 +60,10 @@ public class CadastroFuncActivity extends AppCompatActivity {
             user = userHelper.inserir(user);
 
             if (user.getId() != null){
+                SharedPreferences sp = getSharedPreferences(getString(R.string.name_shared_preference), MODE_PRIVATE);
+                sp.edit().putString(getString(R.string.user_logged), new Gson().toJson(user)).apply();
                 startActivity(new Intent(CadastroFuncActivity.this, MainActivity.class));
+                finish();
             } else {
                 Toast.makeText(CadastroFuncActivity.this, "Tivemos um problema, tente novamente !!!", Toast.LENGTH_SHORT).show();
             }

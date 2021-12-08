@@ -1,11 +1,14 @@
 package com.example.front.db.entity;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private Long id;
     private String name;
     private String mail;
     private String office;
     private String password;
+    private Boolean isAdm;
 
     public String getOffice() {
         return office;
@@ -45,5 +48,13 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Boolean getAdm() {
+        return isAdm;
+    }
+
+    public void setAdm(Boolean adm) {
+        isAdm = adm;
     }
 }
