@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.example.front.db.DBContract;
 import com.example.front.db.DBHelper;
+import com.example.front.db.entity.Client;
 import com.example.front.db.entity.User;
 
 import java.util.ArrayList;
@@ -23,17 +24,35 @@ public class UserHelper {
     }
 
     public String[] columns(){
-        return new String[]{"_id",
+        return new String[]{DBContract.User._ID,
                 DBContract.User.COLUMN_NAME,
                 DBContract.User.COLUMN_EMAIL,
                 DBContract.User.COLUMN_OFFICE,
                 DBContract.User.COLUMN_PASSWORD};
     }
 
+    public List<User> getAll() {
+        List<User> users = new ArrayList<>();
+
+        db = new DBHelper(this.context).getWritableDatabase();
+        Cursor c = db.query(DBContract.User.TABLE_NAME, columns(),
+                null, null, null, null, DBContract.User._ID + " DESC");
+
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            User user = fillUser(c);
+            users.add(user);
+            c.moveToNext();
+        }
+        c.close();
+        db.close();
+
+        return users;
+    }
+
     public User login(String email, String password) {
         List<User> users = new ArrayList<>();
 
-        Log.d("LSDKSLD ", "LSKDSLD ENTROU " + email + " LSKDL SKDSL " + password);
         db = new DBHelper(this.context).getWritableDatabase();
         String[] args = new String[]{email, password};
         Cursor c = db.query(DBContract.User.TABLE_NAME, columns(),
@@ -63,6 +82,28 @@ public class UserHelper {
         String[] args = new String[]{email};
         Cursor c = db.query(DBContract.User.TABLE_NAME, columns(),
                 "email = ?", args, null, null, "name");
+
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            User user = fillUser(c);
+            users.add(user);
+            c.moveToNext();
+        }
+        c.close();
+        db.close();
+        if (users.size() > 0)
+            return users.get(0);
+
+        return null;
+    }
+
+    public User findById(Long userId) {
+        List<User> users = new ArrayList<>();
+
+        db = new DBHelper(this.context).getWritableDatabase();
+        String[] args = new String[]{userId.toString()};
+        Cursor c = db.query(DBContract.User.TABLE_NAME, columns(),
+                DBContract.User._ID + " = ?", args, null, null, DBContract.User._ID);
 
         c.moveToFirst();
         while (!c.isAfterLast()) {

@@ -50,6 +50,33 @@
             android:name=".ui.client.ShowClientActivity"
             android:label="@string/title_activity_show_client"
             android:theme="@style/Theme.Front.NoActionBar" />
+
+        <activity
+            android:name=".ui.activity.ActivityActivity"
+            android:label="@string/title_activity_activity"
+            android:theme="@style/Theme.Front.NoActionBar" />
+        <activity
+            android:name=".ui.activity.CreateActivityActivity"
+            android:label="@string/title_activity_create_activity"
+            android:theme="@style/Theme.Front.NoActionBar" />
+        <activity
+            android:name=".ui.activity.ShowActivityActivity"
+            android:label="@string/title_activity_show_activity"
+            android:theme="@style/Theme.Front.NoActionBar" />
+
+        <activity
+            android:name=".ui.user.UserActivity"
+            android:label="@string/title_activity_user"
+            android:theme="@style/Theme.Front.NoActionBar" />
+        <activity
+            android:name=".ui.user.CreateUserActivity"
+            android:label="@string/title_activity_create_user"
+            android:theme="@style/Theme.Front.NoActionBar" />
+        <activity
+            android:name=".ui.user.ShowUserActivity"
+            android:label="@string/title_activity_show_user"
+            android:theme="@style/Theme.Front.NoActionBar" />
+
         <activity
             android:name=".ui.client.FindClientActivity"
             android:label="@string/title_activity_find_client"

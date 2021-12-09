@@ -24,4 +24,10 @@ public class DBContract {
         public static final String COLUMN_PAYMENT_METHOD = "payment_method";
         public static final String COLUMN_LOCATION = "location";
     }
+
+    public static class Activity implements BaseColumns {
+        public static final String TABLE_NAME = "activity";
+        public static final String COLUMN_NAME = "name";
+        public static final String COLUMN_USER = "user_id";
+    }
 }

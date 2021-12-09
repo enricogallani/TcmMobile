@@ -9,6 +9,14 @@
     <string name="title_activity_find_client">Buscar</string>
     <string name="title_activity_show_client">Detalhe do cliente</string>
 
+    <string name="title_activity_activity">Lista de atividades</string>
+    <string name="title_activity_create_activity">Cadastro de atividades</string>
+    <string name="title_activity_show_activity">Detalhe da atividade</string>
+
+    <string name="title_activity_user">Lista de consultores</string>
+    <string name="title_activity_create_user">Cadastro de consultores</string>
+    <string name="title_activity_show_user">Detalhe do consultor</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
